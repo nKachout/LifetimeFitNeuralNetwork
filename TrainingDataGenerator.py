@@ -52,6 +52,20 @@ class DecayGenerator():
             """
             self.training_data = training_data
 
+
+            # Tirer au hasard les parametres
+            taus = np.random.uniform(min_tau, max_tau, size=self.nb_test_decay)
+            noises = np.random.uniform(noise_min, noise_max, size=self.nb_test_decay)
+            nb_photons = np.random.uniform(nb_photon_min, nb_photon_max, size=self.nb_test_decay).astype(np.int)
+
+
+            # Single core
+            test_data = []
+            for i in range(self.nb_test_decay):
+                # TODO vectorization ? Mais avec des parametres tous differents ?
+                test_data.append(self.generate_single_exp_decay(taus[i], t0, noises[i], nb_photons[i]))
+
+            self.test_data = test_data
             """
             # Multicore
             def generate_single_exp_decay_fct(tau, t0, noise, nb_photons):
@@ -94,6 +108,7 @@ class DecayGenerator():
         pass
 
     def save(self):
+        #TODO with shelves
         pass
 
     def load(self):
