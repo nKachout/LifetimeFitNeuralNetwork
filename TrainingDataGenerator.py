@@ -91,7 +91,8 @@ class DecayGenerator():
 
         decay_data += np.random.random(self.time_idx.size) * noise
 
-        return (decay_data, np.array([tau, noise]))
+        #return (decay_data, np.array([tau, noise]))
+        return (decay_data, np.array([tau]))
 
     def generate_double_exp_decay(self, a1, a2, tau1, tau2, t0, noise, nb_of_generated_photon):
         C = 1 / (a1 * tau1 + a2 * tau2)

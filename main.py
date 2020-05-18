@@ -7,7 +7,7 @@ params_dict_["tau"] = [1, 10]
 params_dict_["noise"] = [0, 0]
 params_dict_["nb_photon"] = [1000, 10000]
 params_dict_["t0"] = [0.5, 0.5]
-decay_generator = DecayGenerator(nb_trainning_decay=10, nb_test_decay=2, model="single_exp", params_dict=params_dict_)
+decay_generator = DecayGenerator(nb_trainning_decay=40, nb_test_decay=10, model="single_exp", params_dict=params_dict_)
 decay_generator.generate_data()
 training_data = decay_generator.training_data
 test_data = decay_generator.test_data
